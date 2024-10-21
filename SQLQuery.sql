@@ -11,7 +11,7 @@ SELECT
 FROM Filmes
 ORDER BY Ano
 
--- 3 - Buscar pelo filme de volta para o futuro, trazendo o nome, ano e a duração
+-- 3 - Buscar pelo filme de volta para o futuro, trazendo o nome, ano e a duraÃ§Ã£o
 SELECT 
 	Nome, 
 	Ano,
@@ -19,14 +19,14 @@ SELECT
 FROM Filmes
 WHERE Nome LIKE 'De Volta para o Futuro'
 
--- 4 - Buscar os filmes lançados em 1997
+-- 4 - Buscar os filmes lanÃ§ados em 1997
 SELECT
 	*
 FROM
 	Filmes
 WHERE Ano = 1997
 
--- 5 - Buscar os filmes lançados APÓS o ano 2000
+-- 5 - Buscar os filmes lanÃ§ados APÃ“S o ano 2000
 SELECT
 	*
 FROM
@@ -41,7 +41,7 @@ FROM
 WHERE DURACAO BETWEEN 101 AND 149
 ORDER BY Duracao
 
--- 7 - Buscar a quantidade de filmes lançadas no ano, agrupando por ano, ordenando pela duracao em ordem decrescente
+-- 7 - Buscar a quantidade de filmes lanÃ§adas no ano, agrupando por ano, ordenando pela duracao em ordem decrescente
 SELECT Ano,
 COUNT(*) Quantidade
 FROM 
@@ -49,14 +49,14 @@ FROM
 GROUP BY Ano
 ORDER BY Quantidade Desc
 
--- 8 - Buscar os Atores do gênero masculino, retornando o PrimeiroNome, UltimoNome
+-- 8 - Buscar os Atores do gÃªnero masculino, retornando o PrimeiroNome, UltimoNome
 SELECT
 	PrimeiroNome,
 	UltimoNome	
 FROM Atores
 WHERE Genero LIKE 'M'
 
--- 9 - Buscar os Atores do gênero feminino, retornando o PrimeiroNome, UltimoNome, e ordenando pelo PrimeiroNome
+-- 9 - Buscar os Atores do gÃªnero feminino, retornando o PrimeiroNome, UltimoNome, e ordenando pelo PrimeiroNome
 SELECT
 	PrimeiroNome,
 	UltimoNome	
@@ -64,22 +64,26 @@ FROM Atores
 WHERE Genero LIKE 'F'
 ORDER BY PrimeiroNome
 
--- 10 - Buscar o nome do filme e o gênero
-SELECT F.Nome, G.Genero
+-- 10 - Buscar o nome do filme e o gÃªnero
+SELECT 
+	F.Nome, 
+	G.Genero
 FROM Filmes F
 INNER JOIN FilmesGenero FG
 ON (F.Id = FG.IdFilme)
 INNER JOIN Generos G
 ON (FG.IdGenero = G.Id)
 
--- 11 - Buscar o nome do filme e o gênero do tipo "Mistério"
-SELECT F.Nome, G.Genero
+-- 11 - Buscar o nome do filme e o gÃªnero do tipo "MistÃ©rio"
+SELECT 
+	F.Nome, 
+	G.Genero
 FROM Filmes F
 INNER JOIN FilmesGenero FG
 ON (F.Id = FG.IdFilme)
 INNER JOIN Generos G
 ON (FG.IdGenero = G.Id)
-WHERE G.Genero LIKE 'Mistério'
+WHERE G.Genero LIKE 'MistÃ©rio'
 
 -- 12 - Buscar o nome do filme e os atores, trazendo o PrimeiroNome, UltimoNome e seu Papel
 SELECT
